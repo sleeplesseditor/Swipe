@@ -37,7 +37,7 @@ export default class App extends React.Component {
 
   renderNoMoreCards() {
     return (
-      <Card title="All Done!">
+      <Card title="All Done!" style={{ marginTop: 50 }}>
         <Text style={{ marginBottom: 10 }}>
           There's no more content here!
         </Text>
