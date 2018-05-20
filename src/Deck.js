@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { 
     Animated, 
-    Dimensions, 
-    PanResponder, 
+    Dimensions,
+    LayoutAnimation, 
+    PanResponder,
+    UIManager, 
     View 
 } from 'react-native';
 
@@ -38,6 +40,17 @@ class Deck extends Component {
         });
 
         this.state = { panResponder, position, index: 0 };
+    }
+
+    componentWillReceiveProps() {
+        if (nextProps.data !== this.props.data) {
+            this.setState({ index: 0 });
+        }
+    }
+
+    componentWillMount() {
+        UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+        LayoutAnimation.spring();
     }
 
     resetPosition() {
